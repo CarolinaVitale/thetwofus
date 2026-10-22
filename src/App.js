@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const products = [['Friendsgiving','The one with all your favorites. A playful tribute to friendship, shared tables, and your favorite Thanksgiving episodes.','friendsgiving'],['Thankful Pups','Five little friends, one very thankful crew. A little autumn joy for the dog people in your life.','pups'],['Thanksgiving Table','All the good stuff, together. A celebration of comfort food and the people you share it with.','table'],['Stars Hollow','A small-town state of mind. Coffee cups, autumn leaves, and familiar places for your cozy season.','stars']];
+export default function App() {
+const [selected,setSelected]=useState(null);
+const [contactOpen,setContactOpen]=useState(false);
+const dialogRef=useRef(null);
+useEffect(()=>{if(selected !== null) dialogRef.current.showModal();},[selected]);
+useEffect(()=>{if(!('IntersectionObserver' in window)) return; const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.08});document.querySelectorAll('.section-top,.product,.pack-copy,.about-copy,.about-art').forEach(el=>{el.classList.add('reveal');observer.observe(el);});return ()=>observer.disconnect();},[]);
+return <>
+<a className="skip" href="#main">Skip to content</a>
+<header id="top"><a href="#top" aria-label="The Two of Us home"><img className="nav-logo" src="assets/green-logo@4x.png" alt="The Two of Us" /></a><nav aria-label="Main navigation"><a href="#collection">The good stuff</a><a href="#packaging">The little details</a><a href="#about">Our story</a></nav><a className="nav-contact" href="#contact">Say hello ↗</a></header>
+<main id="main"><section className="hero"><div className="hero-copy"><p className="eyebrow">THOUGHTFUL THINGS. COLORFUL MOMENTS.</p><h1>A little<br />more <em>joy.</em></h1><p>For the gifts you can’t wait to give.<br />And the little things you keep for yourself.</p><a className="button dark" href="#collection">Explore the collection <span>↗</span></a><div className="hero-note">CREATED BY TWO FRIENDS, FOR YOUR KIND OF PEOPLE.</div></div><div className="hero-art"><img className="hero-brand" src="assets/packaging.jpeg" alt="The Two of Us colorful brand packaging" /><div className="round-sticker">Made to<br />make you<br />smile.</div></div></section>
+<div className="ticker" aria-hidden="true"><span>GOOD THINGS COME IN TWOS　 ✳　 LITTLE GIFTS. BIG FEELINGS.　 ✳　 A LITTLE MORE COLOR.　 ✳</span></div>
+<section id="collection" className="collection"><div className="section-top"><div><p className="eyebrow">FIND YOUR LITTLE THING</p><h2>Small things.<br />Very good energy.</h2></div><p>Meet our Thanksgiving edit.<br />Four designs for gathering, giving thanks,<br />and making yourself right at home.</p></div><div className="collection-bar"><span>THE THANKSGIVING EDIT</span><span>FOUR DESIGNS. ALL THE FEELS.</span></div><div className="products">
+<button className="product" onClick={() => setSelected(0)}><div className="product-photo"><img src="assets/friendsgiving.png" alt="Friendsgiving cream sweatshirt" loading="lazy" /><span className="tag">FOR YOUR PEOPLE</span><span className="view">Explore ↗</span></div><div className="product-info"><h3>Friendsgiving</h3><span>01</span></div><p>The one with all your favorites.</p></button>
+<button className="product" onClick={() => setSelected(1)}><div className="product-photo"><img src="assets/pups.png" alt="Thankful Pups cream sweatshirt with five dogs" loading="lazy" /><span className="view">Explore ↗</span></div><div className="product-info"><h3>Thankful Pups</h3><span>02</span></div><p>A whole lot to be thankful fur.</p></button>
+<button className="product" onClick={() => setSelected(2)}><div className="product-photo"><img src="assets/table.png" alt="Thanksgiving Table cream sweatshirt" loading="lazy" /><span className="view">Explore ↗</span></div><div className="product-info"><h3>Thanksgiving Table</h3><span>03</span></div><p>Save a seat for something cozy.</p></button>
+<button className="product" onClick={() => setSelected(3)}><div className="product-photo"><img src="assets/stars.png" alt="Stars Hollow cream sweatshirt on a hanger" loading="lazy" /><span className="tag yellow">SMALL-TOWN FEELING</span><span className="view">Explore ↗</span></div><div className="product-info"><h3>Stars Hollow</h3><span>04</span></div><p>Coffee, fall, and a familiar feeling.</p></button></div><div className="future"><span>THIS IS JUST THE BEGINNING.</span><p>Sweatshirts now. Tees, paper goods, and more little joys to come.</p><span>↗</span></div></section>
+<section id="packaging" className="packaging"><div className="pack-photo"><img src="assets/packaging.jpeg" alt="The Two of Us colorful packaging with blue box, green envelopes, pink tissue and yellow cards" loading="lazy" /></div><div className="pack-copy"><img src="assets/offwhite-logo-mini@4x.png" alt="" className="pack-symbol" /><p className="eyebrow">THE OUTSIDE MATTERS, TOO.</p><h2>Joy.<br />All wrapped up.</h2><p>Bright colors. Playful paper. Our signature little loop. A whole world of details that feel like us.</p><p>Because the outside should make you smile, too.</p><span className="small-label">THE TWO OF US / THE UNWRAPPING EDIT</span></div></section>
+<section id="about" className="about"><div className="about-art"><div className="about-label">TWO MINDS. ONE VERY COLORFUL IDEA.</div><img src="assets/green-logo-mini@4x.png" alt="The Two of Us interwoven symbol" loading="lazy" /><div className="about-bottom"><span>YOU + ME</span><span>= THE TWO OF US</span></div></div><div className="about-copy"><p className="eyebrow">TWO FRIENDS. ONE COLORFUL IDEA.</p><h2>From the<br />two of us.</h2><p>Two friends. A shared love for creating. And an idea to make everyday things feel a little more special.</p><p>The Two of Us is our space to turn those ideas into things you can wear, give, and make your own. We're starting with sweatshirts, with tees and paper goods waiting in the wings.</p><p className="signoff">From the two of us, to you. ♡</p></div></section>
+<section id="contact" className="contact"><div><p className="eyebrow">GOOD THINGS AHEAD</p><h2>Let’s keep<br />in the loop.</h2><p>New collections. Fresh colors. Little reasons to smile.</p></div><div className="contact-action"><button id="hello" onClick={() => setContactOpen(true)} className="button light">Say hello <span>↗</span></button><p id="contact-note" className={contactOpen ? 'contact-note active' : 'contact-note'} role="status">{contactOpen ? "We'd love to hear from you! Our contact channels are coming soon. This demo doesn't send messages." : 'Our contact details are coming soon. This is a first look at our little world.'}</p></div></section></main>
+<footer><div className="footer-main"><img src="assets/green-logo@4x.png" alt="The Two of Us" /><p>Little things.<br />Colorful connections.<br />Always better together.</p><div><a href="#collection">The collection ↗</a><a href="#about">Our story ↗</a><a href="#contact">Contact ↗</a></div></div><div className="footer-bottom"><span>© <span id="year">2026</span> THE TWO OF US</span><span>A FIRST LOOK · VISUAL DEMO</span><a href="#top">BACK TO TOP ↑</a></div></footer>
+<dialog ref={dialogRef} onClose={()=>setSelected(null)} onClick={e=>{if(e.target===e.currentTarget){const r=e.currentTarget.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.currentTarget.close();}}}>{selected !== null && <><button className="close" aria-label="Close product details" onClick={()=>dialogRef.current.close()}>×</button><img src={'/assets/'+products[selected][2]+'.png'} alt={products[selected][0]+' cream sweatshirt'} /><div className="detail-copy"><p className="eyebrow">THE THANKSGIVING EDIT</p><h2>{products[selected][0]}</h2><p>{products[selected][1]}</p><p>Cream crewneck sweatshirt · Design preview</p><p className="detail-note">Our first collection is taking shape. Prices, sizing, and availability are coming soon.</p><button className="button dark" onClick={()=>dialogRef.current.close()}>Keep exploring ↗</button></div></>}</dialog></>;
 }
-
-export default App;
