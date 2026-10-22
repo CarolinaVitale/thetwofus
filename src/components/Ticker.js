@@ -1,15 +1,28 @@
+import Icon from './Icon';
 import './Ticker.css';
 
-const message = 'GOOD THINGS COME IN TWOS　 ✳　 LITTLE GIFTS. BIG FEELINGS.　 ✳　 A LITTLE MORE COLOR.　 ✳';
+const phrases = ['GOOD THINGS COME IN TWOS', 'LITTLE GIFTS. BIG FEELINGS.', 'A LITTLE MORE COLOR.'];
 
-const repeatedMessage = Array(4).fill(message).join('　 ');
+function TickerGroup() {
+  return (
+    <div className="ticker-group">
+      {Array.from({ length: 4 }, (_, repeat) =>
+        phrases.map((phrase, index) => (
+          <span className="ticker-item" key={repeat + '-' + index}>
+            {phrase}<Icon name="asterisk" />
+          </span>
+        ))
+      )}
+    </div>
+  );
+}
 
 export default function Ticker() {
   return (
     <div className="ticker" aria-hidden="true">
       <div className="ticker-track">
-        <span className="ticker-group">{repeatedMessage}</span>
-        <span className="ticker-group">{repeatedMessage}</span>
+        <TickerGroup />
+        <TickerGroup />
       </div>
     </div>
   );

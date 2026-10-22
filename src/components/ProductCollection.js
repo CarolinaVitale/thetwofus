@@ -1,3 +1,4 @@
+import Icon from './Icon';
 import { useState } from 'react';
 import { products } from '../data/products';
 import ProductCard from './ProductCard';
@@ -25,7 +26,7 @@ export default function ProductCollection() {
       <div className="future">
       <span>THIS IS JUST THE BEGINNING.</span>
       <p>Sweatshirts now. Tees, paper goods, and more little joys to come.</p>
-      <span>↗</span>
+      <span><Icon /></span>
       </div>
       </section>
 

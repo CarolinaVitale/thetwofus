@@ -24,3 +24,19 @@
 @media (prefers-reduced-motion: reduce) {
   .ticker .ticker-track { animation: none; }
 }
+
+.ticker .ticker-group {
+  display: flex;
+  align-items: center;
+  padding-inline: 0;
+}
+
+.ticker .ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  padding-right: 40px;
+  margin: 0;
+  width: auto;
+  animation: none;
+}

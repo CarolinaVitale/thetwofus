@@ -1,3 +1,4 @@
+import Icon from './Icon';
 import { useEffect, useRef } from 'react';
 
 export default function ProductDialog({ product, onClose }) {
@@ -24,7 +25,7 @@ export default function ProductDialog({ product, onClose }) {
           <h2 id="product-title">{product.name}</h2><p>{product.description}</p>
           <p>Cream crewneck sweatshirt · Design preview</p>
           <p className="detail-note">Our first collection is taking shape. Prices, sizing, and availability are coming soon.</p>
-          <button className="button dark" onClick={() => dialogRef.current.close()}>Keep exploring ↗</button>
+          <button className="button dark" onClick={() => dialogRef.current.close()}>Keep exploring <Icon /></button>
         </div>
       </>}
     </dialog>

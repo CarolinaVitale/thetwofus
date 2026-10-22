@@ -1,3 +1,4 @@
+import Icon from './Icon';
 import { Link } from "react-router-dom";
 export default function Header() {
 
@@ -11,7 +12,7 @@ export default function Header() {
       <Link to="/#packaging">The little details</Link>
       <Link to="/about">Our story</Link>
       </nav>
-      <Link className="nav-contact" to="/contact">Say hello ↗</Link>
+      <Link className="nav-contact" to="/contact">Say hello <Icon /></Link>
       </header>
 
   );

@@ -1,3 +1,4 @@
+import Icon from './Icon';
 import { Link } from "react-router-dom";
 export default function Hero() {
 
@@ -8,7 +9,7 @@ export default function Hero() {
       <h1>A little<br />more <em>joy.</em>
       </h1>
       <p>For the gifts you can’t wait to give.<br />And the little things you keep for yourself.</p>
-      <Link className="button dark" to="/catalog">Explore the collection <span>↗</span>
+      <Link className="button dark" to="/catalog">Explore the collection <span><Icon /></span>
       </Link>
       <div className="hero-note">CREATED BY TWO FRIENDS, FOR YOUR KIND OF PEOPLE.</div>
       </div>

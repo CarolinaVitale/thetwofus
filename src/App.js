@@ -1,3 +1,4 @@
+import Icon from './components/Icon';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
@@ -15,7 +16,7 @@ export default function App() {
           <Route path="catalog" element={<CatalogPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
-          <Route path="*" element={<section className="collection"><h1>Page not found.</h1><Link to="/">Back home ↗</Link></section>} />
+          <Route path="*" element={<section className="collection"><h1>Page not found.</h1><Link to="/">Back home <Icon /></Link></section>} />
         </Route>
       </Routes>
     </BrowserRouter>
