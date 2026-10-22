@@ -1,0 +1,26 @@
+.ticker {
+  padding-inline: 0;
+}
+
+.ticker .ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 112s linear infinite;
+}
+
+.ticker .ticker-group {
+  flex: 0 0 auto;
+  min-width: 100vw;
+  margin: 0;
+  padding-inline: 12px;
+  animation: none;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker .ticker-track { animation: none; }
+}

@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# The Two of Us
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Brand website and product catalog built with React and JavaScript. This is a visual demo: no backend, checkout, or message delivery is connected.
 
-## Available Scripts
+## Local development
 
-In the project directory, you can run:
+```sh
+npm install
+npm start
+```
 
-### `npm start`
+Create a production build with `npm run build`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- `src/pages/`: HomePage (`/`), CatalogPage (`/catalog`), AboutPage (`/about`), ContactPage (`/contact`).
+- `src/components/`: shared layout, navigation, footer, homepage sections, product cards, and product dialog.
+- `src/data/products.js`: product names, descriptions, image identifiers, and badges.
+- `src/hooks/usePageEffects.js`: page titles, scroll behavior, and reveal animations.
+- `src/App.js`: React Router route definitions.
+- `src/App.css`: responsive brand styles.
+- `public/assets/`: images and original logo files used by the site.
+- `src/assets/`: original brand source assets.
 
-### `npm test`
+The home page composes reusable sections; catalog, about, and contact also have dedicated pages. Product selection belongs to ProductCollection, dialog behavior to ProductDialog, and the contact demo state to ContactSection.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Production hosting must serve `index.html` for application routes such as `/catalog` so direct links and refreshes work with BrowserRouter.
